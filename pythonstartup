@@ -1,0 +1,27 @@
+#! /usr/bin/env python
+
+try:
+    import readline, rlcompleter, os, atexit
+    def savehist():
+        try:
+            import os, readline
+            histfile_path = os.path.join(os.environ['HOME'], '.pythonhistory')
+            readline.write_history_file(histfile_path)
+            del os, readline, histfile_path
+        except:
+            pass
+    readline.parse_and_bind('tab: tab-insert')
+    readline.parse_and_bind("set editing-mode vi")
+    readline.parse_and_bind("set show-all-if-ambiguous on")
+    readline.parse_and_bind("set meta-flag on")
+    readline.parse_and_bind("set input-meta on")
+    readline.parse_and_bind("set output-meta on")
+    readline.parse_and_bind("set convert-meta off")
+    histfile_path = os.path.join(os.environ['HOME'], '.pythonhistory')
+    atexit.register(savehist)
+    readline.read_history_file(histfile_path)
+    del os, histfile_path, readline, rlcompleter, atexit
+except IOError:
+    pass
+except ImportError:
+    pass

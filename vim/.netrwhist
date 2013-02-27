@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/roi/_shared/dotfiles/.vim'
+let g:netrw_dirhist_2='/home/roi/_shared/dotfiles'
+let g:netrw_dirhist_3='/home/roi'
+let g:netrw_dirhist_4='/home/roi/_shared/dotfiles/.vim'
+let g:netrw_dirhist_5='/home/roi/.vim'
+let g:netrw_dirhist_6='/home/roi/.vim/bundles'
+let g:netrw_dirhist_7='/home/roi/_shared/dotfiles/.vim/bundles'
+let g:netrw_dirhist_8='/home/roi/_shared/work_data/script/hscrb_arlotta/data_retrieval'

@@ -1,0 +1,40 @@
+# dotfiles/inputrc - for libreadline
+$include /etc/inputrc
+
+# Be 8-bit clean
+set input-meta on
+set output-meta on
+
+# Use vi bindings
+set editing-mode vi
+set keymap vi
+
+set mark-directories on
+
+# ---------------------------------------------------
+# Completion
+# ---------------------------------------------------
+#set completion-ignore-case on
+# Treat _ and - as equivalent when doing case-insensitive searching
+#set completion-map-case on
+# Don't show how filename if there are multiple completion options
+set completion-prefix-display-length 4
+
+# Show all options after first <TAB>
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Find hidden files without typing '.'
+set match-hidden-files on
+
+
+# ---------------------------------------------------
+# Keybindings
+# ---------------------------------------------------
+# Press up and down to scroll through partial search results
+# forward- and backward-char ensure that left and right function
+# as expected
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
