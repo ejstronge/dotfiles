@@ -270,11 +270,13 @@ alias ..='cd ..'
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
-
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
 
+alias e="vim" # I am forever marked by vi/m
+
 export PYTHONPATH=~/src:~/work/script/hscrb_arlotta/
+export PATH=~/bin:~/.local/bin:$PATH:$
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
@@ -319,47 +321,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 
 #-------------------------------------------------------------
-# A few fun ones
-#-------------------------------------------------------------
-
-# Adds some text in the terminal frame (if applicable).
-
-function xtitle()
-{
-    case "$TERM" in
-    *term* | rxvt)
-        echo -en  "\e]0;$*\a" ;;
-    *)  ;;
-    esac
-}
-
-
-# Aliases that use xtitle
-alias top='xtitle Processes on $HOST && top'
-alias make='xtitle Making $(basename $PWD) ; make'
-
-# .. and functions
-function man()
-{
-    for i ; do
-        xtitle The $(basename $1|tr -d .[:digit:]) manual
-        command man -a "$i"
-    done
-}
-
-
-#-------------------------------------------------------------
 # Make the following commands run in background automatically:
 #-------------------------------------------------------------
-
-function te()  # wrapper around xemacs/gnuserv
-{
-    if [ "$(gnuclient -batch -eval t 2>&-)" == "t" ]; then
-       gnuclient -q "$@";
-    else
-       ( xemacs "$@" &);
-    fi
-}
 
 function soffice() { command soffice "$@" & }
 function firefox() { command firefox "$@" & }
@@ -467,3 +430,9 @@ function mydf()         # Pretty-print of 'df' output.
 
 export WORKON_HOME=$HOME/bin/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+#-------------------------------------------------------------
+# Let Awesomewm run java applications
+#-------------------------------------------------------------
+_JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
+
