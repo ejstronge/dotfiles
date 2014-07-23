@@ -1,3 +1,0 @@
-! Esc on caps lock
-clear Lock
-keycode 66 = 0xff1b

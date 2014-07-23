@@ -19,6 +19,8 @@ set mark-directories on
 #set completion-map-case on
 # Don't show filename if there are multiple completion options
 set completion-prefix-display-length 2
+set completion-ignore-case On
+set bell-style none
 
 # Show all options after first <TAB>
 set show-all-if-ambiguous off
@@ -27,6 +29,10 @@ set show-all-if-unmodified off
 # Find hidden files without typing '.'
 set match-hidden-files off
 
+$if mode=vi
+    set keymap vi-command
+    "gg": beginning-of-history
+    "G": end-of-history
 
 # ---------------------------------------------------
 # Keybindings
